@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gardu_induk;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class HomeController extends Controller
+class GarduIndukController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('home');
+        //
     }
 
     /**
@@ -34,18 +34,15 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($gardu_id)
+    public function show(Gardu_induk $gardu_induk)
     {
-
-        $data = DB::table('bays')->where('gardu_id', $gardu_id)->get();
-
-        return response()->json(['data' => $data]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Gardu_induk $gardu_induk)
     {
         //
     }
@@ -53,7 +50,7 @@ class HomeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Gardu_induk $gardu_induk)
     {
         //
     }
@@ -61,7 +58,7 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Gardu_induk $gardu_induk)
     {
         //
     }

@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KarawangController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LayoutController;
+use App\Http\Controllers\PurwakartaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,14 +22,18 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::controller(HomeController::class)->group(function(){
+Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
 });
 
-Route::controller(DashboardController::class)->group(function(){
-    Route::get('dashboard', 'index');
-});
-
-Route::controller(KarawangController::class)->group(function() {
+Route::controller(KarawangController::class)->group(function () {
     Route::get('karawang', 'index');
 });
+Route::controller(PurwakartaController::class)->group(function () {
+    Route::get('purwakarta', 'index');
+    // Route::get('databay/show/{gardu_id}', 'show');
+});
+
+Route::get('databay/show/{gardu_id}', [LayoutController::class, 'show'])->name('show');
+
+// Route::get('', 'show');

@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bay;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class HomeController extends Controller
+class BayController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('home');
+        //
     }
 
     /**
@@ -34,18 +34,15 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($gardu_id)
+    public function show(Bay $bay)
     {
-
-        $data = DB::table('bays')->where('gardu_id', $gardu_id)->get();
-
-        return response()->json(['data' => $data]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Bay $bay)
     {
         //
     }
@@ -53,7 +50,7 @@ class HomeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Bay $bay)
     {
         //
     }
@@ -61,7 +58,7 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Bay $bay)
     {
         //
     }

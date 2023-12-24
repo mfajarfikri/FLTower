@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ultg;
+use App\Models\Gardu_induk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class HomeController extends Controller
+class PurwakartaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('home');
+        $data = DB::table('gardu_induks')->where('ultg_id', 2)->get();
+        $ultg = Ultg::all();
+        return view('pages.purwakarta', ['data' => $data, 'ultg' => $ultg]);
     }
 
     /**
@@ -34,12 +38,9 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($gardu_id)
+    public function show(string $id)
     {
-
-        $data = DB::table('bays')->where('gardu_id', $gardu_id)->get();
-
-        return response()->json(['data' => $data]);
+        //
     }
 
     /**

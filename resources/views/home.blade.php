@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
+
 @section('content')
+@include('component.sidebar')
     <div class="flex-grow overflow-hidden h-full flex flex-col">
         <div class="mx-10 my-10 cursor-pointer border-solid border-gray-900">
             <div class="px-5 py-3 bg-white rounded-lg">

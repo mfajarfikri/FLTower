@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bay;
 use App\Models\Karawang;
+use App\Models\Gardu_induk;
+use App\Models\Ultg;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KarawangController extends Controller
 {
@@ -12,7 +16,9 @@ class KarawangController extends Controller
      */
     public function index()
     {
-        return view('pages.karawang');
+        $data = DB::table('gardu_induks')->where('ultg_id', 1)->get();
+        $ultg = Ultg::all();
+        return view('pages.karawang', ['data' => $data, 'ultg' => $ultg]);
     }
 
     /**
@@ -34,9 +40,12 @@ class KarawangController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Karawang $karawang)
+    public function show($gardu_id)
     {
-        //
+
+        $data = DB::table('bays')->where('gardu_id', $gardu_id)->get();
+
+        return response()->json(['data' => $data]);
     }
 
     /**

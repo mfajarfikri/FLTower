@@ -2,8 +2,8 @@
 
 @extends('layouts.layout')
 
-
 @section('content')
+
 @include('component.sidebar')
     <div class="flex-grow overflow-hidden h-full flex flex-col">
         <div class="h-16 lg:flex w-full border-b border-gray-200 hidden px-10">
@@ -134,7 +134,7 @@
     </div>
 
 
-   
+    
     
 
 @endsection

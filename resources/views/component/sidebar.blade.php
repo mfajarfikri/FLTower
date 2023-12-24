@@ -12,7 +12,9 @@
                 </svg>
             </button>
         </a>
-        <a href="/karawang">
+        @foreach ($ultg as $item)
+            
+        <a href="{{ $item->link }}">
             <button class="h-10 w-12 rounded-md flex items-center justify-center hover:bg-blue-100 hover:text-blue-500">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" data-slot="icon" class="w-6 h-6">
@@ -21,5 +23,6 @@
                 </svg>
             </button>
         </a>
+        @endforeach
     </div>
 </div>
