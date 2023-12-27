@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ultg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +13,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = DB::table('gardu_induks')->where('ultg_id', 1)->get();
+        $ultg = Ultg::all();
+        return view('home', ['data' => $data, 'ultg' => $ultg]);
     }
 
     /**
